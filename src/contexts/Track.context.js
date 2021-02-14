@@ -18,6 +18,8 @@ export function TrackProvider(props){
         })
         .catch(err => console.log(err));
     }, []);
+
+    
     return(
         <TrackContext.Provider value={{tracks:tracks}}>
             {props.children}

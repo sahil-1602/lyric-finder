@@ -11,7 +11,8 @@ export default function Navbar(props) {
                 <h1>LyricFinder</h1>
             </div>
             <div className="nav--search">
-                <input onKeyDown={(e) => search(e)} placeholder="search song lyrics...." type="text"/>
+                <input onKeyDown={(e) => search(e)} 
+                    placeholder="search song lyrics...." type="text"/>
             </div>
         </div>
     )

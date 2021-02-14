@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {} from 'react';
 import Navbar from './components/Navbar'
 import TrackList from './components/TrackList';
 import Lyric from './components/Lyric';
