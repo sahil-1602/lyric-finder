@@ -44,3 +44,55 @@
     }
   }
 }
+
+.card {
+  background-color: aqua;
+  width: 40%;
+  height: 20rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 3rem;
+  margin: 1rem;
+
+  &--song {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+
+  &--track {
+    font-size: 2.5rem;
+    font-weight: 400;
+  }
+  &--album {
+    font-size: 2.5rem;
+    font-weight: 400;
+  }
+  &--part2 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+  &--link {
+    align-self: center;
+    width: 70%;
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.track-list {
+  margin: 0 30rem;
+  &--head {
+    text-align: center;
+    font-size: 4rem;
+    margin: 2rem 0;
+  }
+  &--list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

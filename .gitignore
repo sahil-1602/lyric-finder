@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/src/API_KEY.js
+/.env
 /.pnp
 .pnp.js
 
