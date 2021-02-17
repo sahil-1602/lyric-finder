@@ -14,13 +14,26 @@
       font-size: 3rem;
       color: $color-light-grey-1;
       text-transform: uppercase;
+      @media only screen and (max-width: $bp-small) {
+        margin-top: 0;
+        font-size: 2rem;
+      }
     }
   }
 
   &--search {
     width: 40%;
-    font-size: 3.5rem;
+    font-size: 3rem;
     // margin-left: -3.35rem;
+    margin-bottom: 1.5rem;
+    @media only screen and (max-width: $bp-large) {
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.5rem;
+      margin: 0;
+    }
 
     input {
       border: none;
