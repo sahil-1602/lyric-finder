@@ -189,6 +189,18 @@
   width: 35%;
   margin: 0 auto;
   margin-top: 5rem;
+  @media only screen and (max-width: $bp-largest) {
+    width: 40%;
+  }
+  @media only screen and (max-width: $bp-large) {
+    width: 50%;
+  }
+  @media only screen and (max-width: $bp-medium) {
+    width: 60%;
+  }
+  @media only screen and (max-width: $bp-small) {
+    width: 70%;
+  }
 
   &--name {
     display: flex;
@@ -201,6 +213,12 @@
       font-style: italic;
       text-decoration: underline;
       color: $color-dark-secondary;
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 3rem;
+      }
+      @media only screen and (max-width: $bp-small) {
+        font-size: 2rem;
+      }
     }
   }
 
@@ -209,5 +227,11 @@
     text-align: center;
     font-size: 4rem;
     font-weight: 200;
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 3rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+      font-size: 2rem;
+    }
   }
 }
