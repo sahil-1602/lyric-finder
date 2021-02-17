@@ -48,7 +48,17 @@
 }
 
 .track-list {
-  margin: 0 30rem;
+  margin: 0 auto;
+  padding: 0 30rem;
+  @media only screen and (max-width: $bp-largest) {
+    padding: 0 20rem;
+  }
+  @media only screen and (max-width: $bp-larger) {
+    padding: 0 10rem;
+  }
+  @media only screen and (max-width: $bp-large) {
+    padding: 0;
+  }
   &--head {
     h2 {
       text-align: center;
@@ -63,18 +73,38 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    @media only screen and (max-width: $bp-medium) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }
 
 .card {
   margin: 5rem 3rem;
-  min-width: 30%;
-  height: 33rem;
+  width: 37%;
+  height: 36rem;
+  display: flex;
+  flex-direction: column;
   background-color: $color-light-grey-2;
   box-shadow: 0 1rem 2rem rgba(#000, 0.4);
   border-radius: 1rem;
   // cursor: pointer;
   transition: all 0.2s;
+  @media only screen and (max-width: $bp-large) {
+    width: 40%;
+  }
+  @media only screen and (max-width: $bp-medium) {
+    width: 50%;
+    margin: 3rem 1rem;
+  }
+  @media only screen and (max-width: $bp-small) {
+    width: 60%;
+  }
+  @media only screen and (max-width: $bp-smaller) {
+    width: 80%;
+    margin: 2rem 0rem;
+  }
 
   &:hover {
     box-shadow: 0 1rem 1rem rgba(#000, 0.4);
@@ -105,13 +135,16 @@
   }
 
   &--link {
+    align-self: stretch;
+    justify-self: stretch;
+    margin-top: 1rem;
     button {
       cursor: pointer;
       text-decoration: none;
       border: none;
       outline: none;
       width: 100%;
-      height: 5.5rem;
+      height: 6rem;
       font-size: 2rem;
       text-transform: uppercase;
       font-weight: 200;

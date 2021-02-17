@@ -33,11 +33,11 @@ export default function Track(props) {
             <div className="card--details">
                 <div className="card--track"><h4>{song.track_name}</h4></div>
                 <div className="card--part2">
-                <div className="card--artist"><p><span>Artist</span> : {song.artist_name}</p></div>
-                <div className="card--artist"><p><span>Album</span> : {song.album_name}</p></div>
-                <div className="card--link"><button onClick={() => handleClick()}>View Lyrics</button></div>
-                </div> 
+                    <div className="card--artist"><p><span>Artist</span> : {song.artist_name}</p></div>
+                    <div className="card--artist"><p><span>Album</span> : {song.album_name}</p></div>
+                </div>
             </div>   
+            <div className="card--link"><button onClick={() => handleClick()}>View Lyrics</button></div> 
         </div>
     )
 }
