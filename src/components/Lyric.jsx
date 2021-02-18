@@ -16,7 +16,7 @@ export default function Lyric(props) {
     let song = lyrics;
 
     useEffect(() => {
-        const MM_LYRIC_API = `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${track_id}&apikey=${process.env.REACT_APP_MM_KEY}`;
+        const MM_LYRIC_API = `https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${track_id}&apikey=${process.env.REACT_APP_MM_KEY}`;
         axios.get(MM_LYRIC_API)
         .then((res) => {
             const lyric = res.data.message.body.lyrics;
