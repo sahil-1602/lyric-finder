@@ -4,13 +4,16 @@ import {useHistory } from 'react-router-dom';
 import {LyricContext} from '../contexts/Lyric.context';
 
 export default function Track(props) {
+    
     const { updateLyric } = useContext(LyricContext);
-    let song = props.track
     const history = useHistory();
+    let song = props.track
+    
 
     const handleClick = () => {
         updateLyric(song);
-        history.push("/lyrics");
+        let url = `/lyrics/${song.track_id}`;
+        history.push(url);
     }
     
     return (
