@@ -10,15 +10,14 @@ export default function Navbar(props) {
     const history = useHistory();
     const search = (e) => {
         if(e.keyCode == 13){
-            updateSearch({words:words});
             reset();
-            history.push('/search');
+            history.push(`/search/${words}`);
         }
     }
     return (
         <div className="nav">
             <div className="nav--name">
-                <h1>LyricFinder</h1>
+                <h1 onClick={() => history.push('/')}>LyricFinder</h1>
             </div>
             <div className="nav--search">
                 <input onKeyDown={(e) => search(e)} 

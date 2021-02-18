@@ -38,3 +38,20 @@ export default function Lyric(props) {
         )
     }
 }
+
+// useEffect(() => {
+//         const MM_LYRIC_API = `https://api.lyrics.ovh/v1/${song.artist_name}/${song.track_name}`;
+//         console.log(MM_LYRIC_API);
+//         axios.get(MM_LYRIC_API)
+//         .then((res) => {
+//             console.log(res.data);
+//             const lyric = res.data.lyrics;
+//             const track = {
+//                 song: song.track_name,
+//             }
+//             const lyricsWithTrackName = [lyric, track];
+//             updateLyric(lyricsWithTrackName);
+//             setLoader((loader) => false);
+//         })
+//         .catch(err => console.log(err));
+//     }, [])

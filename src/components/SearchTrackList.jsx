@@ -8,7 +8,8 @@ import axios from 'axios';
 
 export default function SearchTrackList(props) {
     let {tracks, updateSearch} = useContext(SearchTrackContext);
-    const words = tracks.words;
+    let words = window.location.pathname;
+    words = words.substr(8, words.length);
     const [loader, setLoader] = useState(false);
 
     useEffect(() => {
@@ -25,7 +26,7 @@ export default function SearchTrackList(props) {
 
     if(loader) return(
             <div className="track-list">
-            <div className="track-list--head"><h2>Results</h2></div>
+            <div className="track-list--head"><h2>Results for '{words}'</h2></div>
             <div className="track-list--list">
 
                 {tracks.map((track, i) => {

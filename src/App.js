@@ -18,7 +18,7 @@ function App() {
               <Switch>
                 <Route exact path='/' render={() => <TrackList/>} />
                 <Route path='/lyrics' render={() => <Lyric/>} />
-                <Route path='/search' render={() => <SearchTrackList/>} />
+                <Route path='/search/:words' render={() => <SearchTrackList/>} />
               </Switch>
             </div>
           </SearchTrackProvider>
