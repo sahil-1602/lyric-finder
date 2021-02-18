@@ -1,29 +1,17 @@
 import React, { useContext  } from 'react';
 import '../sass/_component.scss';
-import axios from 'axios';
 import {useHistory } from 'react-router-dom';
 import {LyricContext} from '../contexts/Lyric.context';
 
 export default function Track(props) {
-
+    const { updateLyric } = useContext(LyricContext);
     let song = props.track
     const history = useHistory();
-    const { updateLyric } = useContext(LyricContext);
 
     const handleClick = () => {
-        const MM_LYRIC_API = `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${song.track_id}&apikey=${process.env.REACT_APP_MM_KEY}`;
-        axios.get(MM_LYRIC_API)
-        .then((res) => {
-            const lyric = res.data.message.body.lyrics;
-            const track = {
-                song: song.track_name,
-            }
-            const lyricsWithTrackName = [lyric, track];
-            updateLyric(lyricsWithTrackName);
-            history.push('/lyrics');
-        })
-        .catch(err => console.log(err));
-    };
+        updateLyric(song);
+        history.push("/lyrics");
+    }
     
     return (
         <div className="card">

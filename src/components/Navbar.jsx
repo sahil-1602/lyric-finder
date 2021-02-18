@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import axios from 'axios';
 import '../sass/_component.scss';
 import useInputState from '../hooks/useInputState';
 import {SearchTrackContext} from '../contexts/SearchTrack.context';
@@ -11,15 +10,9 @@ export default function Navbar(props) {
     const history = useHistory();
     const search = (e) => {
         if(e.keyCode == 13){
-            const MM_API = `https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q=${words}&page_size=10&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_MM_KEY}`;
-            axios.get(MM_API)
-            .then((res) => {
-                const data = res.data.message.body.track_list;
-                updateSearch(data);
-                reset();
-                history.push('/search');
-            })
-            .catch(err => console.log(err));
+            updateSearch({words:words});
+            reset();
+            history.push('/search');
         }
     }
     return (
