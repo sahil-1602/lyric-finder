@@ -20,10 +20,10 @@ function App() {
           <SearchTrackProvider>
             <PopupProvider>
               <div>
-                <Redirect to="/" />
+                <Redirect to="/lyric-finder" />
                 <Navbar/>
                 <Switch>
-                  <Route exact path='/' render={() => <TrackList/>} />
+                  <Route exact path='/lyric-finder' render={() => <TrackList/>} />
                   <Route path='/lyrics/:track_id' render={() => <Lyric/>} />
                   <Route path='/search/:words' render={() => <SearchTrackList/>} />
                 </Switch>
