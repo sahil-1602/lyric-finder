@@ -10,7 +10,7 @@ import {LyricProvider} from './contexts/Lyric.context';
 import {SearchTrackProvider} from './contexts/SearchTrack.context';
 import {PopupProvider} from './contexts/Popup.context';
 
-import {Route, Switch} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
           <SearchTrackProvider>
             <PopupProvider>
               <div>
+                <Redirect to="/" />
                 <Navbar/>
                 <Switch>
                   <Route exact path='/' render={() => <TrackList/>} />
