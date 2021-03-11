@@ -18,7 +18,7 @@ export default function Navbar(props) {
     return (
         <div className="nav">
             <div className="nav--name">
-                <h1 onClick={() => history.push('/')}>LyricFinder</h1>
+                <h1 onClick={() => history.push('/lyric-finder')}>LyricFinder</h1>
             </div>
             <div className="nav--search">
                 <input onKeyDown={(e) => search(e)} 
