@@ -14,7 +14,7 @@ export default function SearchTrackList(props) {
     const [loader, setLoader] = useToggleState(false);
 
     useEffect(() => {
-        const MM_API = `http://api.musixmatch.com/ws/1.1/track.search?q=${words}&page_size=10&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_MM_KEY}`;
+        const MM_API = `https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q=${words}&page_size=10&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_MM_KEY}`;
             axios.get(MM_API)
             .then((res) => {
                 const data = res.data.message.body.track_list;

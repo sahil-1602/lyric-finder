@@ -8,6 +8,7 @@ import SearchTrackList from './components/SearchTrackList';
 import {TrackProvider} from './contexts/Track.context';
 import {LyricProvider} from './contexts/Lyric.context';
 import {SearchTrackProvider} from './contexts/SearchTrack.context';
+import {PopupProvider} from './contexts/Popup.context';
 
 import {Route, Switch} from "react-router-dom";
 
@@ -17,14 +18,16 @@ function App() {
       <TrackProvider>
         <LyricProvider>
           <SearchTrackProvider>
-            <div>
-              <Navbar/>
-              <Switch>
-                <Route exact path='/' render={() => <TrackList/>} />
-                <Route path='/lyrics/:track_id' render={() => <Lyric/>} />
-                <Route path='/search/:words' render={() => <SearchTrackList/>} />
-              </Switch>
-            </div>
+            <PopupProvider>
+              <div>
+                <Navbar/>
+                <Switch>
+                  <Route exact path='/' render={() => <TrackList/>} />
+                  <Route path='/lyrics/:track_id' render={() => <Lyric/>} />
+                  <Route path='/search/:words' render={() => <SearchTrackList/>} />
+                </Switch>
+              </div>
+            </PopupProvider>
           </SearchTrackProvider>
         </LyricProvider>
       </TrackProvider>

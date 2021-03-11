@@ -236,3 +236,59 @@
     }
   }
 }
+
+.popup {
+  background-color: $color-light-grey-1;
+  margin-top: 20vh;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  &--head {
+    text-align: center;
+    justify-self: center;
+    margin: 0 auto;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #b22222;
+    text-decoration: underline;
+  }
+
+  &--close {
+    justify-self: flex-end;
+    margin-right: 2rem;
+    background-color: #b22222;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    button {
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      color: $color-light-grey-1;
+    }
+  }
+
+  &--text {
+    margin-top: 1rem;
+    color: $color-dark-primary;
+    font-size: 2rem;
+  }
+
+  &--btn {
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    align-self: center;
+    margin-top: 1rem;
+    background-color: #ffd700;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+  }
+}
