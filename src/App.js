@@ -21,14 +21,9 @@ function App() {
         <SearchTrackProvider>
           <PopupProvider>
             <div>
-              <Redirect to='/lyric-finder' />
               <Navbar />
               <Switch>
-                <Route
-                  exact
-                  path='/lyric-finder'
-                  render={() => <TrackList />}
-                />
+                <Route exact path='/' render={() => <TrackList />} />
                 <Route path='/lyrics/:track_id' render={() => <Lyric />} />
                 <Route
                   path='/search/:words'
