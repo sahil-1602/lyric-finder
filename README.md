@@ -2,7 +2,7 @@
 
 This is a lyricfinder app clone. It is a react app for searching tracks, albums, artist and lyrics. Made with MusixMatch Api.
 
-[Vist Website](https://sahil-1602.github.io/lyric-finder/)
+[Vist Website](https://lyric-finder-sahil.netlify.app/)
 
 ### Build With
 
