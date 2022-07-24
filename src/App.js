@@ -10,7 +10,7 @@ import { LyricProvider } from './contexts/Lyric.context';
 import { SearchTrackProvider } from './contexts/SearchTrack.context';
 import { PopupProvider } from './contexts/Popup.context';
 
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import './css/style.css';
 
