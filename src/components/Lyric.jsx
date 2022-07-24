@@ -1,50 +1,47 @@
-import React, { useContext, useEffect} from 'react';
-import {LyricContext} from '../contexts/Lyric.context';
+import React, { useContext, useEffect } from 'react';
+import { LyricContext } from '../contexts/Lyric.context';
 import useToggleState from '../hooks/useToggleState';
-import '../sass/_component.scss';
 import Loader from './Loader';
 import axios from 'axios';
 
-
-
 export default function Lyric(props) {
+  const { lyrics, updateLyric } = useContext(LyricContext);
+  const [loader, setLoader] = useToggleState(true);
 
-    const { lyrics, updateLyric } = useContext(LyricContext);
-    const [loader, setLoader] = useToggleState(true);
+  const track_id = window.location.pathname.substr(
+    8,
+    window.location.pathname.length
+  );
+  let song = lyrics;
 
-    const track_id = window.location.pathname.substr(8, window.location.pathname.length);
-    let song = lyrics;
+  useEffect(() => {
+    const MM_LYRIC_API = `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${track_id}&apikey=${process.env.REACT_APP_MM_KEY}`;
+    axios
+      .get(MM_LYRIC_API)
+      .then((res) => {
+        const lyric = res.data.message.body.lyrics;
+        const track = {
+          song: song.track_name,
+        };
+        const lyricsWithTrackName = [lyric, track];
+        updateLyric(lyricsWithTrackName);
+        setLoader((loader) => false);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
-    useEffect(() => {
-        const MM_LYRIC_API = `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${track_id}&apikey=${process.env.REACT_APP_MM_KEY}`;
-        axios.get(MM_LYRIC_API)
-        .then((res) => {
-            const lyric = res.data.message.body.lyrics;
-            const track = {
-                song: song.track_name,
-            }
-            const lyricsWithTrackName = [lyric, track];
-            updateLyric(lyricsWithTrackName);
-            setLoader((loader) => false);
-        })
-        .catch(err => console.log(err));
-    }, [])
-    
-    if(loader) return(<Loader/>);
-
-    else {
-
-        return(
-            <div className="lyric-container">
-                <div className="lyric-container--name">
-                    <h2>{lyrics[1].song}</h2>
-                    <h2>{lyrics[0].explicit == 1 ? "Explicit" : ""}</h2>
-                </div>
-                <h1>{lyrics[0].lyrics_body}</h1>
-            </div>
-        )
-
-    }
+  if (loader) return <Loader />;
+  else {
+    return (
+      <div className='lyric-container'>
+        <div className='lyric-container--name'>
+          <h2>{lyrics[1].song}</h2>
+          <h2>{lyrics[0].explicit == 1 ? 'Explicit' : ''}</h2>
+        </div>
+        <h1>{lyrics[0].lyrics_body}</h1>
+      </div>
+    );
+  }
 }
 
 // useEffect(() => {
